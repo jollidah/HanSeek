@@ -1,8 +1,8 @@
 package HanSeek.Database;
 
-import com.google.gson.Gson;
+import HanSeek.Database.userData;
 
-import java.io.IOException;
+import com.google.gson.Gson;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
@@ -15,32 +15,20 @@ public class answerString {
         return id++;
     }
 
-    public static String getResult(String answerString){
+    public static String getResult(String answerString, String key){
         String result = "";
+        Map<String, String> resultHash;
         try {
             InputStream inputStream = answerString.class.getClassLoader().getResourceAsStream("model_result.json");
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
             Gson gson = new Gson();
-            Map<String, String> resultHash = gson.fromJson(inputStreamReader, Map.class);
-            result = resultHash.get(answerString);
+            Map<String, Map <String, String>> JSONhash = gson.fromJson(inputStreamReader, Map.class);
+            resultHash = JSONhash.get(answerString);
+            result = resultHash.get(key);
         } catch (Exception e) {
             System.out.println("ERROR occured_get result");
             e.printStackTrace();
         }
         return result;
     }
-
-
-//    public void saveUserData(String userData) {
-//
-//        try{
-//            Gson gson = new Gson();
-//            Map<String, String> tmpMap = new HashMap<>();
-//            tmpMap.put(userData, new )
-//        }catch (IOException e){
-//            System.out.println("IOException while sending data to model");
-//            e.printStackTrace();
-//        }
-//    }
-
 }

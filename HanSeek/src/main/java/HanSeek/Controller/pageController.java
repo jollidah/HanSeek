@@ -1,6 +1,8 @@
 package HanSeek.Controller;
 
 import HanSeek.Database.answerString;
+import HanSeek.Database.userData;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,19 +28,6 @@ public class pageController {
         return "/queries/query1_meat_fish";
     }
 
-//    @GetMapping("/queries/query1_meat_fish")
-//    public String createQuestion_1(@RequestParam("userId") long userId,
-//                                   @RequestParam("answerString") String answerString,
-//                                    Model model) {
-//        model.addAttribute("userId", userId);
-//        model.addAttribute("answerString", answerString);
-//        return "/queries/query1_meat_fish";
-//    }
-
-//    @GetMapping("/queries/query1_meat_fish")
-//    public String page_1(){
-//        return "/queries/query1_meat_fish";
-//    }
 
     @PostMapping("answer_1")
     public String saveAnswer_1(@RequestParam("userId") long userId,
@@ -56,11 +45,6 @@ public class pageController {
             return "/queries/query4_carbohydrate";
         }
     }
-
-//    @GetMapping("/queries/query2_meat")
-//    public String page_2(){
-//        return "/queries/query2_meat";
-//    }
 
     @PostMapping("answer_2")
     public String saveAnswer_2(@RequestParam("userId") long userId,
@@ -131,23 +115,26 @@ public class pageController {
         model.addAttribute("userId", userId);
         model.addAttribute("answerString", answerString);
         // send to model
-
-        model.addAttribute("result_1", HanSeek.Database.answerString.getResult(answerString));
-        model.addAttribute("result_2", HanSeek.Database.answerString.getResult(answerString));
-        model.addAttribute("result_3", HanSeek.Database.answerString.getResult(answerString));
-        model.addAttribute("result_1_url", "/img/" + HanSeek.Database.answerString.getResult(answerString) + ".png");
-        model.addAttribute("result_2_url", "/img/" + HanSeek.Database.answerString.getResult(answerString) + ".png");
-        model.addAttribute("result_3_url", "/img/" + HanSeek.Database.answerString.getResult(answerString) + ".png");
+        String r1 =  HanSeek.Database.answerString.getResult(answerString, "first");
+        String r2 = HanSeek.Database.answerString.getResult(answerString, "second");
+        String r3 = HanSeek.Database.answerString.getResult(answerString, "third");
+        model.addAttribute("result_1",r1);
+        model.addAttribute("result_2", r2);
+        model.addAttribute("result_3", r3);
+        model.addAttribute("result_1_url", "/img/" + r1 + ".png");
+        model.addAttribute("result_2_url", "/img/" + r2 + ".png");
+        model.addAttribute("result_3_url", "/img/" + r3 + ".png");
         return "/result";
     }
 
 @PostMapping("feedback")
 public String getResult(@RequestParam("userId") long userId,
                         @RequestParam("bestResult") String bestResult,
-                        @RequestParam("attendance") char attendance,
+                        @RequestParam(value = "attendance", defaultValue = "N") char attendance,
                         @RequestParam("feedback") String feedback,
                         Model model){
-
+    userData userData = new userData(userId, bestResult, feedback);
+    userData.saveUserData();
     // save file
     if(attendance == 'Y'){
         model.addAttribute("userId", userId);
@@ -158,7 +145,7 @@ public String getResult(@RequestParam("userId") long userId,
 }
 
     @PostMapping("surveyform")
-    public String surveyPage(@RequestParam("userId") long userId,
+    public String createSurvey(@RequestParam("userId") long userId,
                              @RequestParam("name") String name,
                              @RequestParam("gender") char gender,
                              @RequestParam("nationality") String nationality,
@@ -168,6 +155,10 @@ public String getResult(@RequestParam("userId") long userId,
         return "/final";
     }
 
+    @GetMapping("survey")
+    public String surveyPage(){
+        return "survey";
+    }
 
     @GetMapping("final")
     public String finalPage(){
