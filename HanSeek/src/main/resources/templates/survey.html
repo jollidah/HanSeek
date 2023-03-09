@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍚HanSeek</title>
+</head>
+<body>
+<h2>좋아!</h2>
+<h2>연락 줄게</h2>
+<h2>개인정보 적어줭</h2>
+<form action="surveyform" method="post">
+    <input type="hidden" name="userId" th:value="${userId}">
+    <br>
+<div>Name</div>
+    <input type="text" name="name" placeholder="Input your name please" required
+        oninvalid="this.setCustomValidity('Please fill in all fields')">
+<br>
+<br>
+<div>Gender</div>
+    <table>
+        <tr>
+        <th><label>Male</label></th>
+        <th><label>Female</label></th>
+        <th><label>Secret</label></th>
+        </tr>
+
+
+        <tr>
+            <th>
+                <input type="radio" name="gender" value="M" required
+                       oninvalid="this.setCustomValidity('Please fill in all fields')">
+            </th>
+            <th>
+                <input type="radio" name="gender" value="F" required
+                       oninvalid="this.setCustomValidity('Please fill in all fields')">
+            </th>
+            <th>
+                <input type="radio" name="gender" value="S" required
+                       oninvalid="this.setCustomValidity('Please fill in all fields')">
+            </th>
+        </tr>
+    </table>
+    <br>
+<br>
+<div>Nationality</div>
+<input type="text" name="nationality"  required
+       oninvalid="this.setCustomValidity('Please fill in all fields')">
+<br>
+<br>
+<div>Phone number</div>
+<input type="text" name="phone_number" placeholder="Input your phone number please" required
+       oninvalid="this.setCustomValidity('Please fill in all fields')">
+<br>
+<br>
+<div>How long will you stay in Korea?</div>
+<select name="visit_length" required
+        oninvalid="this.setCustomValidity('Please fill in all fields')">
+    <option value="0">less than a month</option>
+    <option value="1">less than 3 months</option>
+    <option value="2">less than 6 months</option>
+    <option value="3">less than a year</option>
+    <option value="4">less than 3 years</option>
+    <option value="5">more than 3 years</option>
+</select>
+    <br>
+    <br>
+    <button type="submit" >Submit</button>
+</form>
+
+</body>
+</html>

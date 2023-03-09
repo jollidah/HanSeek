@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Finish!</title>
+    <title>🍚HanSeek</title>
 </head>
 <body>
-Finish!
+<h1>Gotcha!</h1>
+<p>
+    <h2>We found your K-soul food!</h2>
+<th th:text="${result_1}"></th>
+
+<form action="feedback" method="post">
+    <input type="hidden" name="userId" th:value="${userId}">
+    <table>
+    <tr>
+        <th th:text="${result_1}"></th>
+        <th th:text="${result_2}"></th>
+        <th th:text="${result_3}"></th>
+    </tr>
+
+    <tr>
+        <th><img th:src="@{${result_1_url}}" alt="result_1 image"></th>
+        <th><img th:src="@{${result_1_url}}" alt="result_2 image"></th>
+        <th><img th:src="@{${result_1_url}}" alt="result_3 image"></th>
+    </tr>
+    <br>
+    <tr>
+        <h3>Which answer do you like?</h3>
+    </tr>
+    <tr>
+        <th><input type="radio" name="bestResult" th:value="${result_1}" required></th>
+        <th><input type="radio" name="bestResult" th:value="${result_2}" required></th>
+        <th><input type="radio" name="bestResult" th:value="${result_3}" required></th>
+    </tr>
+</table>
+    <br>
+    <p>우리 한식당에서 서비스에 대한 어쩌구 저쩌구</p>
+    <table>
+        <tr>
+            <th><label>Yes!</label></th>
+            <th><label>Next time</label></th>
+        </tr>
+
+        <tr>
+            <th><input type="radio" name="attendance" value="Y"></th>
+            <th><input type="radio" name="attendance" value="N"></th>
+        </tr>
+    </table>
+    Feel free to leave feedback!
+    <br>
+    <textarea name="feedback" style="resize: none">
+    </textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>

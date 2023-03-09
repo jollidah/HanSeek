@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍚HanSeek</title>
+</head>
+<body>
+Question2
+<br>
+Your Id :
+<th th:text="${userId}"></th>
+<form action="/answer_2" method="post">
+    <input type="hidden" name="userId" th:value="${userId}">
+    <input type="hidden" name="answerString" th:value="${answerString}">
+    <button type="submit" name="answer_2_button" value="0">Chicken</button>
+    <button type="submit" name="answer_2_button" value="1">Beef</button>
+    <button type="submit" name="answer_2_button" value="2">Pork</button>
+</form>
+</body>
+</html>
