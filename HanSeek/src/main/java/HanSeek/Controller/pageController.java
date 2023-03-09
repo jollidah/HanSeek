@@ -134,7 +134,7 @@ public String getResult(@RequestParam("userId") long userId,
                         @RequestParam("feedback") String feedback,
                         Model model){
     userData userData = new userData(userId, bestResult, feedback);
-    userData.saveUserData();
+//    userData.saveUserData();
     // save file
     if(attendance == 'Y'){
         model.addAttribute("userId", userId);
