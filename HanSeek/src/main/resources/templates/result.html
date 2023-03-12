@@ -9,8 +9,9 @@
 <p>
     <h2>We found your K-soul food!</h2>
 
-<form action="feedback" method="post">
+<form action="/feedback" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
+    <input type="hidden" name="answerString" th:value="${answerString}">
     <table>
     <tr>
         <th th:text="${result_1}"></th>
@@ -19,12 +20,12 @@
     </tr>
 
     <tr>
-<!--        <th><img th:src="@{${result_1_url}}" alt="result_1 image"></th>-->
-<!--        <th><img th:src="@{${result_2_url}}" alt="result_2 image"></th>-->
-<!--        <th><img th:src="@{${result_3_url}}" alt="result_3 image"></th>-->
-        <th><img src="/img/test.png" alt="result_1 image"></th>
-        <th><img src="/img/test.png" alt="result_2 image"></th>
-        <th><img src="/img/test.png" alt="result_3 image"></th>
+        <th><img th:src="@{${result_1_url}}" alt="result_1 image"></th>
+        <th><img th:src="@{${result_2_url}}" alt="result_2 image"></th>
+        <th><img th:src="@{${result_3_url}}" alt="result_3 image"></th>
+<!--        <th><img src="/img/test.png" alt="result_1 image"></th>-->
+<!--        <th><img src="/img/test.png" alt="result_2 image"></th>-->
+<!--        <th><img src="/img/test.png" alt="result_3 image"></th>-->
     </tr>
     <br>
     <tr>
@@ -37,7 +38,13 @@
     </tr>
 </table>
     <br>
-    <p>우리 한식당에서 서비스에 대한 어쩌구 저쩌구</p>
+    <p>We are looking for an interviewee</p>
+    <p>who can provide more opinions</p>
+    <p>to build better service for our users!</p>
+    <br>
+    <p>We will treat our interviewees with Korean food</p>
+    <p>at a nice Korean restaurant :) </p>
+    <p>Are you interested?</p>
     <table>
         <tr>
             <th><label>Yes!</label></th>

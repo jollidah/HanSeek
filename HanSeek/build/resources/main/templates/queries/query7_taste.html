@@ -5,10 +5,8 @@
     <title>🍚HanSeek</title>
 </head>
 <body>
-Question7
 <br>
-Your Id :
-<th th:text="${userId}"></th>
+<h3>Which flavor do you like best?</h3>
 <form action="/answer_7" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">

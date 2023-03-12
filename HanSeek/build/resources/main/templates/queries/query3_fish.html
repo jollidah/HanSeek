@@ -5,10 +5,8 @@
   <title>🍚HanSeek</title>
 </head>
 <body>
-Question3
 <br>
-Your Id :
-<th th:text="${userId}"></th>
+<h3>What kind of fish do you want?</h3>
 <form action="/answer_3" method="post">
   <input type="hidden" name="userId" th:value="${userId}">
   <input type="hidden" name="answerString" th:value="${answerString}">

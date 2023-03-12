@@ -5,10 +5,8 @@
     <title>🍚HanSeek</title>
 </head>
 <body>
-Question6
 <br>
-Your Id :
-<th th:text="${userId}"></th>
+<h3>How spicy do you want it to be?</h3>
 <form action="/answer_6" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
