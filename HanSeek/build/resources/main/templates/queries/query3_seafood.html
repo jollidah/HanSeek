@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="/static/css">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+  <link rel="stylesheet" href="/css/queries_2.css">
+  <title>HanSeek</title>
+</head>
+<body>
+<br>
+<h1>What kind of seafood would you like?</h1>
+<form action="/answer_3" method="post">
+  <input type="hidden" name="userId" th:value="${userId}">
+  <input type="hidden" name="answerString" th:value="${answerString}">
+  <table>
+    <tr>
+      <th>
+        <button type="submit" name="answer_3_button" value="0">Cooked seafood</button>
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <button type="submit" name="answer_3_button" value="1">Raw seafood</button>
+      </th>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

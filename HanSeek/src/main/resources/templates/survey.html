@@ -1,61 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <link rel="stylesheet" href="/css/survey.css" >
     <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
     <meta charset="UTF-8">
     <title>HanSeek</title>
 </head>
 <body>
-<h2>Great!</h2>
-<h2>We'll contact you! before March 15th</h2>
+<h1>Great!</h1>
+<h1>We'll contact you! before March 15th</h1>
 <h2>Please fill the forms below! </h2>
-<form action="surveyform" method="post">
+<form action="surveyForm" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <br>
-<div>Name</div>
-    <input type="text" name="name" placeholder="Input your name please" required
-        >
+<div style="font-size: 50px;">Name</div>
+    <br>
+    <input type="text" name="name" class="input_box" placeholder="Input your name please" required>
 <br>
 <br>
-<div>Gender</div>
+<div  style="font-size: 50px;">Gender</div>
     <table>
         <tr>
-        <th><label>Male</label></th>
-        <th><label>Female</label></th>
-        <th><label>Secret</label></th>
+        <th><label style="font-size: 35px;">Male</label></th>
+        <th><label style="font-size: 35px;">Female</label></th>
+        <th><label style="font-size: 30px;">Prefer not to share</label></th>
         </tr>
 
 
         <tr>
             <th>
-                <input type="radio" name="gender" value="M" required
-                       >
+                <input class="gender_selection" type="radio" name="gender" value="M" required>
             </th>
             <th>
-                <input type="radio" name="gender" value="F" required
-                       >
+                <input class="gender_selection" type="radio" name="gender" value="F" required>
             </th>
             <th>
-                <input type="radio" name="gender" value="S" required
-                       >
+                <input class="gender_selection" type="radio" name="gender" value="S" required>
             </th>
         </tr>
     </table>
     <br>
-<br>
-<div>Nationality</div>
-<input type="text" name="nationality"  required
-       >
+<div style="font-size: 50px;">Nationality</div>
+<input type="text" name="nationality" class="input_box" placeholder="Input your nationality please" required>
 <br>
 <br>
-<div>Phone number</div>
-<input type="text" name="phone_number" placeholder="Input your phone number please" required
-       >
+<div style="font-size: 50px;">Email</div>
+<input type="email" name="email" class="input_box"  placeholder="example@gmail.com" required>
 <br>
 <br>
-<div>How long will you stay in Korea?</div>
-<select name="visit_length" required
-        >
+<div style="font-size: 50px;">How long will you stay in Korea?</div>
+<select  name="visit_length" required>
     <option value="0">less than a month</option>
     <option value="1">less than 3 months</option>
     <option value="2">less than 6 months</option>
@@ -65,7 +59,10 @@
 </select>
     <br>
     <br>
-    <button type="submit" >Submit</button>
+    <button class="survey_submit_button" type="submit">Submit</button>
+    <br>
+    <br>
+    <br>
 </form>
 
 </body>

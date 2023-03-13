@@ -3,7 +3,6 @@ package HanSeek.Controller;
 import HanSeek.Database.answerString;
 import HanSeek.Database.User;
 
-import HanSeek.Repository.UserRepository;
 import HanSeek.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,8 +36,8 @@ public class pageController {
     @GetMapping("queries/query2_meat")
     public String page2() {return "queries/query2_meat";}
 
-    @GetMapping("queries/query3_fish")
-    public String page3() {return "queries/query3_fish";}
+    @GetMapping("queries/query3_seafood")
+    public String page3() {return "queries/query3_seafood";}
 
     @GetMapping("queries/query4_carbohydrate")
     public String page4() {return "queries/query4_carbohydrate";}
@@ -86,7 +85,7 @@ public class pageController {
         if (answerString.charAt(0) == '1') {
             return "queries/query2_meat";
         } else if (answerString.charAt(1) == '1') {
-            return "queries/query3_fish";
+            return "/queries/query3_seafood";
         } else {
             return "queries/query4_carbohydrate";
         }
@@ -101,7 +100,7 @@ public class pageController {
         model.addAttribute("userId", userId);
         model.addAttribute("answerString", answerString);
         if (answerString.charAt(1) == '1') {
-            return "queries/query3_fish";
+            return "/queries/query3_seafood";
         } else {
             return "queries/query4_carbohydrate";
         }
@@ -200,18 +199,18 @@ public class pageController {
         }
     }
 
-    @PostMapping("surveyform")
+    @PostMapping("surveyForm")
     public String createSurvey(@RequestParam("userId") long userId,
                                @RequestParam("name") String name,
                                @RequestParam("gender") String gender,
                                @RequestParam("nationality") String nationality,
-                               @RequestParam("phone_number") String phone_number,
+                               @RequestParam("email") String email,
                                @RequestParam("visit_length") String visit_length) {
         User user = (User) userService.getUserById(userId);
         user.setName(name);
         user.setGender(gender);
         user.setNationality(nationality);
-        user.setPhone_number(phone_number);
+        user.setEmail(email);
         user.setVisit_length(visit_length);
         System.out.printf("%d ", user.getId());
         System.out.printf("%s ", user.getAnswerString());
@@ -220,7 +219,7 @@ public class pageController {
         System.out.printf("%s ", user.getName());
         System.out.printf("%s ", user.getGender());
         System.out.printf("%s ", user.getNationality());
-        System.out.printf("%s ", user.getPhone_number());
+        System.out.printf("%s ", user.getEmail());
         System.out.printf("%s ", user.getVisit_length());
         System.out.println("&" + user.getFeedback() + "&");
         return "final";

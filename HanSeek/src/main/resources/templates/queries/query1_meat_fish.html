@@ -2,20 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/queries_4.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
     <title>HanSeek</title>
 </head>
 <body>
 
 <br>
-<h3>What kind of main ingredients do you want?</h3>
+<h1>What kind of main ingredients would you like?</h1>
     <form action="/answer_1" method="post">
         <div>
             <input type="hidden" name="userId" th:value="${userId}">
             <input type="hidden" name="answerString" th:value="${answerString}">
-            <button type="submit" name="answer_1_button" value="12">Meat</button>
-            <button type="submit" name="answer_1_button" value="31">Fish</button>
-            <button type="submit" name="answer_1_button" value="11">I like both</button>
-            <button type="submit" name="answer_1_button" value="32">I don't like both</button>
+            <table>
+                <tr>
+                    <th>
+                    <button type="submit" name="answer_1_button" value="12">Meat</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                    <button type="submit" name="answer_1_button" value="31">Seafood</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                     <button type="submit" name="answer_1_button" value="11">I like both</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                    <button type="submit" name="answer_1_button" value="32">I don't like both</button>
+                    </th>
+                </tr>
+            </table>
         </div>
     </form>
 </body>

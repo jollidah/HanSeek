@@ -1,0 +1,33 @@
+body{
+    text-align : center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+table{
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: 150%;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 150px;
+}
+
+button{
+    width: 450px;
+    height: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 130%;
+    border-radius: 30px;
+    border: none;
+    background-color: orange;
+    color: white;
+}
+
+button:active{
+    border: none;
+    background-color: white;
+    color: orange;
+}

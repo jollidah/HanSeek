@@ -1,0 +1,14 @@
+body{
+    text-align : center;
+    font-size: 150%;
+}
+
+a{
+    font-size: 160%;
+    font-weight: bold;
+}
+
+img{
+    width: 400px;
+    height: auto;
+}

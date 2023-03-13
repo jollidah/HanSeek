@@ -1,6 +1,7 @@
 package HanSeek.Database;
 
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import jakarta.persistence.*;
 
 @Entity
@@ -29,8 +30,8 @@ public class User {
     private String gender;
     @Column(name = "nationality")
     private String nationality;
-    @Column(name = "phone_number")
-    private String phone_number;
+    @Column(name = "email")
+    private String email;
     @Column(name = "visit_length")
     private String visit_length;
 
@@ -98,12 +99,12 @@ public class User {
         this.nationality = nationality;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getVisit_length() {

@@ -2,67 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>🍚HanSeek</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+<!--    <link rel="stylesheet" href="/static/css/result.css">-->
+    <link rel="stylesheet" href="/css/result.css">
+    <title>HanSeek</title>
 </head>
 <body>
 <h1>Gotcha!</h1>
+<div class="container">
 <p>
     <h2>We found your K-soul food!</h2>
-
-<form action="/feedback" method="post">
+    <br>
+    <h2>Which answer do you like?</h2>
+    <br>
+    <form action="/feedback" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
     <table>
     <tr>
-        <th th:text="${result_1}"></th>
-        <th th:text="${result_2}"></th>
-        <th th:text="${result_3}"></th>
+        <th class="result_name" th:text="${result_1}"></th>
+        <th class="result_name" th:text="${result_2}"></th>
+        <th class="result_name" th:text="${result_3}"></th>
     </tr>
 
-    <tr>
-        <th><img th:src="@{${result_1_url}}" alt="result_1 image"></th>
-        <th><img th:src="@{${result_2_url}}" alt="result_2 image"></th>
-        <th><img th:src="@{${result_3_url}}" alt="result_3 image"></th>
-<!--        <th><img src="/img/test.png" alt="result_1 image"></th>-->
-<!--        <th><img src="/img/test.png" alt="result_2 image"></th>-->
-<!--        <th><img src="/img/test.png" alt="result_3 image"></th>-->
-    </tr>
-    <br>
-    <tr>
-        <h3>Which answer do you like?</h3>
-    </tr>
-    <tr>
-        <th><input type="radio" name="bestResult" th:value="${result_1}" required></th>
-        <th><input type="radio" name="bestResult" th:value="${result_2}" required></th>
-        <th><input type="radio" name="bestResult" th:value="${result_3}" required></th>
-    </tr>
+        <tr>
+            <td>
+                <img th:src="@{${result_1_url}}" alt="result_1 image">
+                <br>
+                <input type="radio" name="bestResult" th:value="${result_1}" required
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
+            <td>
+                <img th:src="@{${result_2_url}}" alt="result_2 image">
+                <br>
+                <input type="radio" name="bestResult" th:value="${result_2}" required
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
+            <td>
+                <img th:src="@{${result_3_url}}" alt="result_3 image">
+                <br>
+                <input type="radio" name="bestResult" th:value="${result_3}" required
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <br>
+                <label style=" margin-left:auto; margin-right: auto">I don't like anything :( </label>
+                <br>
+                <input type="radio" name="bestResult" value="Nothing" required
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
+        </tr>
 </table>
     <br>
-    <p>We are looking for an interviewee</p>
-    <p>who can provide more opinions</p>
+    <br>
+    <p>We are looking for an interviewees</p>
+    <p>who can provide us with more feedback</p>
     <p>to build better service for our users!</p>
     <br>
-    <p>We will treat our interviewees with Korean food</p>
+    <p>Interviewees will be treated with Korean food</p>
     <p>at a nice Korean restaurant :) </p>
     <p>Are you interested?</p>
-    <table>
+    <table class="attendance_table">
         <tr>
-            <th><label>Yes!</label></th>
-            <th><label>Next time</label></th>
-        </tr>
-
-        <tr>
-            <th><input type="radio" name="attendance" value="Y"></th>
-            <th><input type="radio" name="attendance" value="N"></th>
+            <td>
+                <label style="font-size: 60px;">Yes</label>
+                <br>
+                <input type="radio" name="attendance" value="Y"
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
+            <td>
+                <label style="font-size: 60px;">No</label>
+                <br>
+                <input type="radio" name="attendance" value="N"
+                       style="accent-color: orange; width:40px;height:40px;border:2px;">
+            </td>
         </tr>
     </table>
-    Feel free to leave feedback!
     <br>
-    <textarea name="feedback" style="resize: none">
+    <label style="font-size: 50px;">Feel free to leave feedback!</label>
+    <br>
+    <textarea name="feedback" class="feedback_textarea">
     </textarea>
     <br>
-    <button type="submit">Submit</button>
+    <button type="submit" class="survey_submit_button">Submit</button>
 </form>
-
+    <br>
+    <br><br>
+</div>
 </body>
 </html>
+

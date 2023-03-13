@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="/static/css/queries_4.css">
 <head>
     <meta charset="UTF-8">
-    <title>🍚HanSeek</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+    <link rel="stylesheet" href="/css/queries_4.css">
+    <title>HanSeek</title>
 </head>
 <body>
 <br>
-<h3>What kind of carbohydrate do you want?</h3>
+<h1>What kind of carbohydrate would you like?</h1>
 <form action="/answer_4" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
-    <button type="submit" name="answer_4_button" value="0">Ricecake</button>
-    <button type="submit" name="answer_4_button" value="1">Noodle</button>
-    <button type="submit" name="answer_4_button" value="2">Rice</button>
-    <button type="submit" name="answer_4_button" value="3">Nope</button>
+    <table>
+        <tr>
+            <th>
+                <button type="submit" name="answer_4_button" value="0">Ricecake</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_4_button" value="1">Noodle</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_4_button" value="2">Rice</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_4_button" value="3">Nope</button>
+            </th>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

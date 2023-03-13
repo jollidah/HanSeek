@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="/static/css/queries_4.css">
 <head>
     <meta charset="UTF-8">
-    <title>🍚HanSeek</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+    <link rel="stylesheet" href="/css/queries_4.css">
+    <title>HanSeek</title>
 </head>
 <body>
 <br>
-<h3>Which flavor do you like best?</h3>
+<h1>Which flavor do you like best?</h3>
 <form action="/answer_7" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
-    <button type="submit" name="answer_7_button" value="0">Salty</button>
-    <button type="submit" name="answer_7_button" value="1">Sour</button>
-    <button type="submit" name="answer_7_button" value="2">Sweetness</button>
-    <button type="submit" name="answer_7_button" value="3">Nothing</button>
+
+    <table>
+        <tr>
+            <th>
+                <button type="submit" name="answer_7_button" value="0">Salty</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_7_button" value="1">Sour</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_7_button" value="2">Sweetness</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_7_button" value="3">Nothing</button>
+            </th>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

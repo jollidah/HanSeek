@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="/static/css/queries_3.css">
 <head>
     <meta charset="UTF-8">
-    <title>🍚HanSeek</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+    <link rel="stylesheet" href="/css/queries_3.css">
+    <title>HanSeek</title>
 </head>
 <body>
 <br>
-<h3>How spicy do you want it to be?</h3>
+<h1>How spicy do you want it to be?</h1>
 <form action="/answer_6" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
-    <button type="submit" name="answer_6_button" value="0">Very spicy</button>
-    <button type="submit" name="answer_6_button" value="2">Little bit spicy</button>
-    <button type="submit" name="answer_6_button" value="1">Not spicy</button>
+
+    <table>
+        <tr>
+            <th>
+                <button type="submit" name="answer_6_button" value="0">Very spicy</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_6_button" value="2">Little bit spicy</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_6_button" value="1">Not spicy</button>
+            </th>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

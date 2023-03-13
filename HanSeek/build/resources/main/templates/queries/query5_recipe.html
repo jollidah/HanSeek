@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<link rel="stylesheet" href="/css/queries_3.css">
 <head>
     <meta charset="UTF-8">
-    <title>🍚HanSeek</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/HanSeek.png">
+    <link rel="stylesheet" href="/css/queries_3.css">
+    <title>HanSeek</title>
 </head>
 <body>
 <br>
-<h3>How much broth would you like?</h3>
+<h1>How much broth would you like?</h1>
 <form action="/answer_5" method="post">
     <input type="hidden" name="userId" th:value="${userId}">
     <input type="hidden" name="answerString" th:value="${answerString}">
-    <button type="submit" name="answer_5_button" value="1">No broth</button>
-    <button type="submit" name="answer_5_button" value="1">Some broth</button>
-    <button type="submit" name="answer_5_button" value="0">broth</button>
+    <table>
+        <tr>
+            <th>
+                <button type="submit" name="answer_5_button" value="0">No broth</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_5_button" value="1">Some broth</button>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <button type="submit" name="answer_5_button" value="2">broth</button>
+            </th>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
