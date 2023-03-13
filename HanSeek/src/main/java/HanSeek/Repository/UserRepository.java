@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+
 public class UserRepository implements JpaRepository<User, Long> {
     private static Map<Long, User> Store = new HashMap<>();
 

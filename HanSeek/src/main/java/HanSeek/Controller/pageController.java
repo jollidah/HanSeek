@@ -189,12 +189,7 @@ public class pageController {
             model.addAttribute("userId", userId);
             return "survey";
         } else {
-
-            System.out.printf("%d ", user.getId());
-            System.out.printf("%s ", user.getAnswerString());
-            System.out.printf("%s ", user.getBestResult());
-            System.out.printf("%s ", user.getAttendance());
-            System.out.println("&" + user.getFeedback() + "&");
+            userService.printUserLog(userId);
             return "final";
         }
     }
@@ -212,16 +207,7 @@ public class pageController {
         user.setNationality(nationality);
         user.setEmail(email);
         user.setVisit_length(visit_length);
-        System.out.printf("%d ", user.getId());
-        System.out.printf("%s ", user.getAnswerString());
-        System.out.printf("%s ", user.getBestResult());
-        System.out.printf("%s ", user.getAttendance());
-        System.out.printf("%s ", user.getName());
-        System.out.printf("%s ", user.getGender());
-        System.out.printf("%s ", user.getNationality());
-        System.out.printf("%s ", user.getEmail());
-        System.out.printf("%s ", user.getVisit_length());
-        System.out.println("&" + user.getFeedback() + "&");
+        userService.printUserLog(userId);
         return "final";
     }
 }

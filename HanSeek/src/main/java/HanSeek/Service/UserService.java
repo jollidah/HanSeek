@@ -25,6 +25,22 @@ public class UserService {
         return jpaRepository.findById(id).orElse(null);
     }
 
+    public void printUserLog(Long id){
+        User user = (User) getUserById(id);
+        System.out.println("########################################\n");
+        System.out.printf("%d/", user.getId());
+        System.out.printf("%s/", user.getAnswerString());
+        System.out.printf("%s/", user.getBestResult());
+        System.out.printf("%s/", user.getAttendance());
+        System.out.printf("%s/", user.getName());
+        System.out.printf("%s/", user.getGender());
+        System.out.printf("%s/", user.getNationality());
+        System.out.printf("%s/", user.getEmail());
+        System.out.printf("%s/", user.getVisit_length());
+        System.out.println( user.getFeedback().strip() + "/");
+        System.out.println("########################################\n");
+    }
+
 //    public List<User> getAllUsers() {
 //        return userRepository.findAll();
 //    }
